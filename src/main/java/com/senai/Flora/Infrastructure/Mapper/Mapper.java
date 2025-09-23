@@ -1,0 +1,28 @@
+package com.senai.Flora.Infrastructure.Mapper;
+
+import com.senai.Flora.Application.DTOs.Entities.ClientDTO;
+import com.senai.Flora.Domain.Entities.Entity.ClientFlora;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Mapper {
+
+    public ClientFlora toEntity (ClientDTO dto) {
+        if (dto == null) return null;
+        ClientFlora clientFlora = new ClientFlora();
+        clientFlora.setName(dto.name());
+        clientFlora.setAge(dto.age());
+        clientFlora.setEmail(dto.email());
+
+        return clientFlora;
+    }
+
+    public ClientDTO toDTO (ClientFlora client) {
+        if (client == null) return null;
+        return new ClientDTO(
+                client.getName(),
+                client.getAge(),
+                client.getEmail()
+        );
+    }
+}
