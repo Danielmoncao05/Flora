@@ -1,4 +1,4 @@
-package com.senai.Flora.Interface_ui_Controller.ClientController;
+package com.senai.Flora.Interface_ui_Controller.EntitiesController.ClientController;
 
 
 import com.senai.Flora.Application.DTOs.Entities.ClientDTO;

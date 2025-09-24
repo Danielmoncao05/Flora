@@ -5,7 +5,7 @@ import com.senai.Flora.Domain.Entities.Entity.ClientFlora;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Mapper {
+public class MapperClient {
 
     public ClientFlora toEntity (ClientDTO dto) {
         if (dto == null) return null;
@@ -20,6 +20,7 @@ public class Mapper {
     public ClientDTO toDTO (ClientFlora client) {
         if (client == null) return null;
         return new ClientDTO(
+                client.getIdClient(),
                 client.getName(),
                 client.getAge(),
                 client.getEmail()

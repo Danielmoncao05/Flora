@@ -1,9 +1,9 @@
 package com.senai.Flora.Application.DTOs.Entities;
 
-public record ClientDTO(
+public record PlantDTO(
         Long id,
         String name,
-        Integer age,
-        String email
+        boolean state,
+        String specialHelp
 ) {
 }

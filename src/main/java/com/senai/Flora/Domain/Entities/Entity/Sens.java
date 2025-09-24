@@ -21,7 +21,7 @@ public class Sens {
     private Long id;
 
     private String type;
-    private Integer value;
+    private Integer value_sens;
     private String sens_name;
     private LocalDateTime attribution_date;
 

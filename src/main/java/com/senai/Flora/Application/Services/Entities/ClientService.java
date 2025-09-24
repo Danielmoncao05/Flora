@@ -4,7 +4,7 @@ package com.senai.Flora.Application.Services.Entities;
 import com.senai.Flora.Application.DTOs.Entities.ClientDTO;
 import com.senai.Flora.Domain.Entities.Entity.ClientFlora;
 import com.senai.Flora.Domain.Repositories.Entity.ClientRepository;
-import com.senai.Flora.Infrastructure.Mapper.Mapper;
+import com.senai.Flora.Infrastructure.Mapper.MapperClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +19,22 @@ public class ClientService {
     private ClientRepository repository;
 
     @Autowired
-    private Mapper mapper;
+    private MapperClient mapperClient;
 
     public ClientDTO registerClient (ClientDTO dto) {
-    ClientFlora clientFlora = mapper.toEntity(dto);
-    ClientFlora save = repository.save(clientFlora);
-    return mapper.toDTO(save);
+    ClientFlora clientFlora = mapperClient.toEntity(dto);
+    // ClientFlora save = repository.save(clientFlora);
+        repository.save(clientFlora);
+
+    return mapperClient.toDTO(clientFlora);
     }
 
     public List<ClientDTO> listingClients () {
-        return repository.findAll().stream().map(mapper::toDTO).collect(Collectors.toList());
+        return repository.findAll().stream().map(mapperClient::toDTO).collect(Collectors.toList());
     }
 
     public Optional<ClientDTO> searchForId (Long id) {
-        return repository.findById(id).map(mapper::toDTO);
+        return repository.findById(id).map(mapperClient::toDTO);
     }
 
     public boolean updateClient (Long id , ClientDTO dto){
