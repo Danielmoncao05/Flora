@@ -1,7 +1,7 @@
-package com.senai.Flora.Application.Services.Entities;
+package com.senai.Flora.Application.Services.Entities.IoT;
 
-import com.senai.Flora.Application.DTOs.Entities.SensDTO;
-import com.senai.Flora.Domain.Entities.Entity.Sens;
+import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
+import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Repositories.Entity.SensRepository;
 import com.senai.Flora.Infrastructure.Mapper.MapperSens;
 import org.springframework.beans.factory.annotation.Autowired;

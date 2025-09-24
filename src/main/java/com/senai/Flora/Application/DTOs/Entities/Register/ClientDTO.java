@@ -1,4 +1,4 @@
-package com.senai.Flora.Application.DTOs.Entities;
+package com.senai.Flora.Application.DTOs.Entities.Register;
 
 public record ClientDTO(
         Long id,

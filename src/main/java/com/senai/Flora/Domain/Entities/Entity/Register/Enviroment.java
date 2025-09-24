@@ -1,4 +1,5 @@
-package com.senai.Flora.Domain.Entities.Entity;
+package com.senai.Flora.Domain.Entities.Entity.Register;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,15 +15,15 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Sens {
+public class Enviroment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idEnviroment;
 
-    private String type;
-    private Integer value_sens;
-    private String sens_name;
-    private LocalDateTime attribution_date;
+    private String nameDescription;
+    private String observation;
+    private boolean state;
+    private LocalDateTime location;
 
 }

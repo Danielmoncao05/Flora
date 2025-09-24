@@ -1,7 +1,7 @@
 package com.senai.Flora.Infrastructure.Mapper;
 
-import com.senai.Flora.Application.DTOs.Entities.ClientDTO;
-import com.senai.Flora.Domain.Entities.Entity.ClientFlora;
+import com.senai.Flora.Application.DTOs.Entities.Register.ClientDTO;
+import com.senai.Flora.Domain.Entities.Entity.Register.ClientFlora;
 import org.springframework.stereotype.Component;
 
 @Component

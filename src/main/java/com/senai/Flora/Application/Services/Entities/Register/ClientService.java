@@ -1,8 +1,8 @@
-package com.senai.Flora.Application.Services.Entities;
+package com.senai.Flora.Application.Services.Entities.Register;
 
 
-import com.senai.Flora.Application.DTOs.Entities.ClientDTO;
-import com.senai.Flora.Domain.Entities.Entity.ClientFlora;
+import com.senai.Flora.Application.DTOs.Entities.Register.ClientDTO;
+import com.senai.Flora.Domain.Entities.Entity.Register.ClientFlora;
 import com.senai.Flora.Domain.Repositories.Entity.ClientRepository;
 import com.senai.Flora.Infrastructure.Mapper.MapperClient;
 import org.springframework.beans.factory.annotation.Autowired;

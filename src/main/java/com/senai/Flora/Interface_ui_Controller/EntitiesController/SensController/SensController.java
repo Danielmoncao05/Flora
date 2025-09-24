@@ -1,8 +1,7 @@
 package com.senai.Flora.Interface_ui_Controller.EntitiesController.SensController;
 
-import com.senai.Flora.Application.DTOs.Entities.SensDTO;
-import com.senai.Flora.Application.Services.Entities.SensService;
-import com.senai.Flora.Domain.Repositories.Entity.SensRepository;
+import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
+import com.senai.Flora.Application.Services.Entities.IoT.SensService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

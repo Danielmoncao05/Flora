@@ -1,4 +1,4 @@
-package com.senai.Flora.Domain.Entities.Entity;
+package com.senai.Flora.Domain.Entities.Entity.Register;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,13 +12,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Plant {
+public class ClientFlora {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // identificator
+    private Long idClient;
 
     private String name;
-    private boolean state;
-    private String specialHelp;
+    private Integer age;
+    private String email;
+
 }

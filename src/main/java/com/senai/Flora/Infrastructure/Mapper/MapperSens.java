@@ -1,7 +1,7 @@
 package com.senai.Flora.Infrastructure.Mapper;
 
-import com.senai.Flora.Application.DTOs.Entities.SensDTO;
-import com.senai.Flora.Domain.Entities.Entity.Sens;
+import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
+import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
