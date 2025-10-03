@@ -1,4 +1,4 @@
-package com.senai.Flora.Domain.Entities.Relationships;
+package com.senai.Flora.Domain.Entities.Entity.Register.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EnviromentClient {
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_enviromentClient;
+    private Long id_Notificacao;
 }

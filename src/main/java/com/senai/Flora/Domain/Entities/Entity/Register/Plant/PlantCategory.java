@@ -1,5 +1,4 @@
-package com.senai.Flora.Domain.Entities.Entity.Register;
-
+package com.senai.Flora.Domain.Entities.Entity.Register.Plant;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,21 +8,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Enviroment {
+public class PlantCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEnviroment;
+    private Long id_PlantCategory;
 
-    private String nameDescription;
-    private String observation;
-    private boolean state;
-    private LocalDateTime location;
-
+    private LocalDate dataImplantacao;
 }

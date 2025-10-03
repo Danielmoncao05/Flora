@@ -1,4 +1,4 @@
-package com.senai.Flora.Domain.Entities.Entity.Register;
+package com.senai.Flora.Domain.Entities.Entity.Register.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

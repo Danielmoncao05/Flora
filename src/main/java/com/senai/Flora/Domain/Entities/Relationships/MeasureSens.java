@@ -1,4 +1,4 @@
-package com.senai.Flora.Domain.Entities.Entity.Register;
+package com.senai.Flora.Domain.Entities.Relationships;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,13 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Plant {
+public class MeasureSens {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-    private boolean state;
-    private String specialHelp;
+    private Long id_MeasureSens;
 }

@@ -1,7 +1,7 @@
 package com.senai.Flora.Infrastructure.Mapper;
 
 import com.senai.Flora.Application.DTOs.Entities.Register.EnviromentDTO;
-import com.senai.Flora.Domain.Entities.Entity.Register.Enviroment;
+import com.senai.Flora.Domain.Entities.Entity.Register.enviroment.Enviroment;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
