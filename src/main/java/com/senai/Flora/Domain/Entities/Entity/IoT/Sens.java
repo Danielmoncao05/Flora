@@ -1,9 +1,6 @@
 package com.senai.Flora.Domain.Entities.Entity.IoT;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,11 +15,19 @@ public class Sens {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_Sens" , nullable = false)
+    private Long id_Sens;
 
+    @Column(name = "type" , nullable = false)
     private String type;
+
+    @Column(name = "value_Sens" , nullable = false)
     private Integer value_sens;
+
+    @Column(name = "sens_Name" , nullable = false)
     private String sens_name;
+
+    @Column(name = "attribution_Date" , nullable = false)
     private LocalDateTime attribution_date;
 
 }
