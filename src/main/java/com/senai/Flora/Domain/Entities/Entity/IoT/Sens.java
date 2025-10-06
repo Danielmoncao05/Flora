@@ -1,11 +1,13 @@
 package com.senai.Flora.Domain.Entities.Entity.IoT;
 
+import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,5 +31,8 @@ public class Sens {
 
     @Column(name = "attribution_Date" , nullable = false)
     private LocalDateTime attribution_date;
+
+    @OneToMany(mappedBy = "sensor")
+    private List<MeasureSens> measures;
 
 }
