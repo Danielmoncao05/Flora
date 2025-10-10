@@ -2,6 +2,7 @@ package com.senai.Flora.Domain.Entities.Entity.Register.enviroment;
 
 
 import com.senai.Flora.Domain.Entities.Relationships.EnviromentClient;
+import com.senai.Flora.Domain.Entities.Relationships.EnviromentPlant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,5 +36,8 @@ public class Enviroment {
 
     @OneToMany(mappedBy = "enviroment")
     private List<EnviromentClient> clients;
+
+    @OneToMany(mappedBy = "enviroment")
+    private List<EnviromentPlant> plants;
 
 }

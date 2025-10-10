@@ -1,6 +1,8 @@
 package com.senai.Flora.Domain.Entities.Relationships;
 
 
+import com.senai.Flora.Domain.Entities.Entity.Register.Plant.Plant;
+import com.senai.Flora.Domain.Entities.Entity.Register.enviroment.Enviroment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +21,13 @@ public class EnviromentPlant {
     @Column(name = "id_enviromentplant")
     private Long id_EnviromentPlant;
 
+    @ManyToOne
+    @JoinColumn(name = "id_plant")
+    private Plant plant;
 
+    @ManyToOne
+    @JoinColumn(name = "id_enviroment")
+    private Enviroment enviroment;
 
 
 }

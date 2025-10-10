@@ -1,9 +1,12 @@
 package com.senai.Flora.Domain.Entities.Entity.Register.Plant;
 
+import com.senai.Flora.Domain.Entities.Relationships.EnviromentPlant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -24,4 +27,7 @@ public class Plant {
 
     @Column(name = "special_Help", nullable = false)
     private String specialHelp;
+
+    @OneToMany(mappedBy = "plant")
+    private List<EnviromentPlant> enviroments;
 }
