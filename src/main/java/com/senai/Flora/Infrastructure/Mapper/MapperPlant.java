@@ -20,7 +20,7 @@ public class MapperPlant {
     public PlantDTO toDTO (Plant plant) {
         if (plant == null) return null;
         return new PlantDTO(
-                plant.getId(),
+                plant.getId_Plant(),
                 plant.getName(),
                 plant.isState(),
                 plant.getSpecialHelp()

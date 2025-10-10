@@ -1,9 +1,12 @@
 package com.senai.Flora.Domain.Entities.Entity.IoT;
 
+import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +24,7 @@ public class Measure {
 
     @Column(name = "measure_Default" ,nullable = false)
     private double measure_default;
+
+    @OneToMany(mappedBy = "measures")
+    private List<MeasureSens> sens;
 }

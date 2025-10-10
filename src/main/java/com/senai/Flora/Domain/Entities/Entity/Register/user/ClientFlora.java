@@ -1,9 +1,12 @@
 package com.senai.Flora.Domain.Entities.Entity.Register.user;
 
+import com.senai.Flora.Domain.Entities.Relationships.EnviromentClient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -13,7 +16,7 @@ public class ClientFlora {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // identificator
-    @Column(name = "id_Client", nullable = false)
+    @Column(name = "id_client", nullable = false)
     private Long idClient;
 
     @Column(name = "name", nullable = false)
@@ -25,4 +28,6 @@ public class ClientFlora {
     @Column(name = "email" , nullable = false)
     private String email;
 
+    @OneToMany(mappedBy = "client_flora")
+    private List<EnviromentClient> enviroments;
 }

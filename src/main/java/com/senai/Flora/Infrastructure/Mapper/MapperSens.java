@@ -24,7 +24,7 @@ public class MapperSens {
         if (sens == null) return null;
 
         return new SensDTO(
-                sens.getId(),
+                sens.getId_Sens(),
                 sens.getType(),
                 sens.getValue_sens(),
                 sens.getSens_name(),

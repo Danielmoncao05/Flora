@@ -26,4 +26,6 @@ public class MeasureSens {
     @ManyToOne
     @JoinColumn(name = "id_measure")
     private Measure measure;
+
+
 }
