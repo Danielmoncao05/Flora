@@ -1,4 +1,4 @@
-package com.senai.Flora.Interface_ui_Controller.EntitiesController;
+package com.senai.Flora.Interface_ui_Controller.EntitiesController.EnviromentController;
 
 import com.senai.Flora.Application.DTOs.Entities.Register.EnviromentDTO;
 import com.senai.Flora.Application.Services.Entities.Register.EnviromentService;
