@@ -1,4 +1,4 @@
-package com.senai.Flora.Infrastructure.Mapper;
+package com.senai.Flora.Infrastructure.Mapper.Entities;
 
 import com.senai.Flora.Application.DTOs.Entities.Register.PlantDTO;
 import com.senai.Flora.Domain.Entities.Entity.Register.Plant.Plant;

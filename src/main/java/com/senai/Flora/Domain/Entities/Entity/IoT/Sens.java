@@ -32,7 +32,7 @@ public class Sens {
     @Column(name = "attribution_Date" , nullable = false)
     private LocalDateTime attribution_date;
 
-    @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MeasureSens> measures;
 
 }

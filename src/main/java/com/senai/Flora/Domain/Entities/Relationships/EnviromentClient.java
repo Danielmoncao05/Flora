@@ -19,7 +19,7 @@ public class EnviromentClient {
     private Long id_enviromentClient;
 
     @ManyToOne
-    @JoinColumn(name = "id_client_flora")
+    @JoinColumn(name = "id_client")
     private ClientFlora clientFlora;
 
     @ManyToOne

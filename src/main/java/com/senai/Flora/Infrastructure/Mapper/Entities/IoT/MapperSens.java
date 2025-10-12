@@ -1,4 +1,4 @@
-package com.senai.Flora.Infrastructure.Mapper;
+package com.senai.Flora.Infrastructure.Mapper.Entities.IoT;
 
 import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
@@ -29,6 +29,7 @@ public class MapperSens {
                 sens.getValue_sens(),
                 sens.getSens_name(),
                 sens.getAttribution_date()
+               // sens.getMeasures().get(1)
         );
     }
 }

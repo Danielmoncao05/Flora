@@ -4,7 +4,7 @@ package com.senai.Flora.Application.Services.Entities.Register;
 import com.senai.Flora.Application.DTOs.Entities.Register.ClientDTO;
 import com.senai.Flora.Domain.Entities.Entity.Register.user.ClientFlora;
 import com.senai.Flora.Domain.Repositories.Entity.ClientRepository;
-import com.senai.Flora.Infrastructure.Mapper.MapperClient;
+import com.senai.Flora.Infrastructure.Mapper.Entities.MapperClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

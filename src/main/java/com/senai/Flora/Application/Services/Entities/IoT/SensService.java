@@ -3,7 +3,7 @@ package com.senai.Flora.Application.Services.Entities.IoT;
 import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Repositories.Entity.SensRepository;
-import com.senai.Flora.Infrastructure.Mapper.MapperSens;
+import com.senai.Flora.Infrastructure.Mapper.Entities.IoT.MapperSens;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +41,7 @@ public class SensService {
             sens.setValue_sens(dto.value_sens());
             sens.setSens_name(dto.sens_name());
             sens.setAttribution_date(LocalDateTime.now());
+
 
             repo.save(sens);
 

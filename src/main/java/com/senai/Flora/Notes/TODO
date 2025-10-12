@@ -1,3 +1,7 @@
 Make columns in the atrributies , all class
 
 - > Make Relationships controllers for test with entities
+|
+| -> make Mappers for use relationships
+
+ -> Implement Entity for relationship in overview of project

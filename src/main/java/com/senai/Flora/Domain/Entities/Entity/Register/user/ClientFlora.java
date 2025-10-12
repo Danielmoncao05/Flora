@@ -28,6 +28,6 @@ public class ClientFlora {
     @Column(name = "email" , nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "client_flora")
+    @OneToMany(mappedBy = "clientFlora")
     private List<EnviromentClient> enviroments;
 }
