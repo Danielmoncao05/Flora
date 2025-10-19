@@ -1,4 +1,4 @@
-package com.senai.Flora.Interface_ui_Controller.EntitiesController.SensController;
+package com.senai.Flora.Interface_ui_Controller.EntitiesController.IotController;
 
 import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
 import com.senai.Flora.Application.Services.Entities.IoT.SensService;

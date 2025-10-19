@@ -6,6 +6,7 @@ import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +21,7 @@ public class MapperSens {
         sens.setValue_sens(dto.value_sens());
         sens.setSens_name(dto.sens_name());
         sens.setAttribution_date(LocalDateTime.now());
+        sens.setMeasures(new ArrayList<>());
 
 
 
@@ -39,8 +41,8 @@ public class MapperSens {
                 sens.getType(),
                 sens.getValue_sens(),
                 sens.getSens_name(),
-                sens.getAttribution_date()
-               // sens.getMeasures().stream().map(MeasureSens::getId_MeasureSens).toList()
+                sens.getAttribution_date(),
+                sens.getMeasures()
         );
     }
 }

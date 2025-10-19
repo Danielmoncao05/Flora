@@ -10,7 +10,7 @@ public record SensDTO(
         String type,
         Integer value_sens,
         String sens_name,
-        LocalDateTime attribuition_date
-       // List<Long> id_measureSens
+        LocalDateTime attribuition_date,
+        List<MeasureSens> measures
 ) {
 }

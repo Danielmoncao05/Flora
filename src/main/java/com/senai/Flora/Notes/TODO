@@ -5,3 +5,5 @@ Make columns in the atrributies , all class
 | -> make Mappers for use relationships
 
  -> Implement Entity for relationship in overview of project
+
+integrantion relationships to entities from Iot and create objects for consults
