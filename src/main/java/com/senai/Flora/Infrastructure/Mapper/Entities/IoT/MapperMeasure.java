@@ -2,9 +2,11 @@ package com.senai.Flora.Infrastructure.Mapper.Entities.IoT;
 
 import com.senai.Flora.Application.DTOs.Entities.IoT.MeasureDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Measure;
+import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Component
 public class MapperMeasure {
@@ -14,7 +16,7 @@ public class MapperMeasure {
         Measure measure = new Measure();
         measure.setMeasure_name(dto.measure_name());
         measure.setMeasure_default(dto.measure_default());
-        measure.setSens(new ArrayList<>());
+        measure.setMeasureSens(new ArrayList<>());
 
         return measure;
     }
@@ -26,7 +28,8 @@ public class MapperMeasure {
                 measure.getId_measure(),
                 measure.getMeasure_name(),
                 measure.getMeasure_default(),
-                measure.getSens()
+                measure.getMeasureSens().stream().map(measureSens ->
+                        measureSens.getSens().getId_Sens()).collect(Collectors.toList())
         );
     }
 

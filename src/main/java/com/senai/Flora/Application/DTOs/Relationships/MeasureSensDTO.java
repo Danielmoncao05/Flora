@@ -5,7 +5,7 @@ import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 
 public record MeasureSensDTO(
         Long id_MeasureSens,
-        Sens sens,
-        Measure measure
+        Long id_sens,
+        Long id_measure
 ) {
 }

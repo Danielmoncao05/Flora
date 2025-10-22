@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/meausure")
+@RequestMapping("/measure")
 public class MeasureController {
 
     private final MeasureService service;

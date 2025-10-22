@@ -26,5 +26,6 @@ public class Measure {
     private double measure_default;
 
     @OneToMany(mappedBy = "measure" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MeasureSens> sens;
+    @Column(name = "sens_id")
+    private List<MeasureSens> measureSens;
 }

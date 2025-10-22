@@ -38,8 +38,8 @@ public class MeasureSensService {
 
     public boolean updateMeasureSens ( Long id , MeasureSensDTO dto) {
         return repository.findById(id).map(measureSens -> {
-            measureSens.setSens(dto.sens());
-            measureSens.setMeasure(dto.measure());
+            measureSens.getSens().setId_Sens(dto.id_sens());
+            measureSens.getMeasure().setId_measure(dto.id_measure());
 
             repository.save(measureSens);
             return true;

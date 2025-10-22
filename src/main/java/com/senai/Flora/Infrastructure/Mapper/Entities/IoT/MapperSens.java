@@ -21,7 +21,7 @@ public class MapperSens {
         sens.setValue_sens(dto.value_sens());
         sens.setSens_name(dto.sens_name());
         sens.setAttribution_date(LocalDateTime.now());
-        sens.setMeasures(new ArrayList<>());
+        sens.setMeasureSens(new ArrayList<>());
 
 
 
@@ -42,7 +42,8 @@ public class MapperSens {
                 sens.getValue_sens(),
                 sens.getSens_name(),
                 sens.getAttribution_date(),
-                sens.getMeasures()
+                sens.getMeasureSens().stream().map(measureSens ->
+                        measureSens.getMeasure().getId_measure()).collect(Collectors.toList())
         );
     }
 }

@@ -15,16 +15,16 @@ public class MeasureSens {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_measuresens")
+    @Column(name = "id_measuresens" , nullable = false)
     private Long id_MeasureSens;
 
     @ManyToOne
-    @JoinColumn(name = "id_sens")
+    @JoinColumn(name = "id_sens" , nullable = false)
     private Sens sens;
 
     // verificar
     @ManyToOne
-    @JoinColumn(name = "id_measure")
+    @JoinColumn(name = "id_measure" , nullable = false)
     private Measure measure;
 
 

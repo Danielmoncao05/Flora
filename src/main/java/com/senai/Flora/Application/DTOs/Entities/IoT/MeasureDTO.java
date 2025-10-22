@@ -9,6 +9,6 @@ public record MeasureDTO(
         Long id,
         String measure_name,
         double measure_default,
-        List<MeasureSens> sens
+        List<Long> measureSens
 ) {
 }
