@@ -24,5 +24,6 @@ public class MapperMeasureSens {
                 measureSens.getSens(),
                 measureSens.getMeasure()
         );
+
     }
 }
