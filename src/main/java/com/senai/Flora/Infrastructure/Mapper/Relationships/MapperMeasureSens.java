@@ -4,23 +4,27 @@ import com.senai.Flora.Application.DTOs.Relationships.MeasureSensDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Measure;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MapperMeasureSens {
 
+    private final EntityManager entityManager;
+
+    public MapperMeasureSens(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     public MeasureSens toEntity (MeasureSensDTO dto) {
         if (dto == null) return null;
         MeasureSens measureSens = new MeasureSens();
 
-        Sens sens = new Sens();
-        sens.setId_Sens(dto.id_sens());
-        measureSens.setSens(sens);
+        // Target sens class existent and associate a new MeasureSens class
+       measureSens.setSens(entityManager.getReference(Sens.class, dto.id_sens()));
 
-
-        Measure measure = new Measure();
-        measureSens.setMeasure(measure);
-        measureSens.getMeasure().setId_measure(dto.id_measure());
+        // Target Measure class existent and associate a new MeasureSens class
+        measureSens.setMeasure(entityManager.getReference(Measure.class, dto.id_measure()));
 
         return measureSens;
     }

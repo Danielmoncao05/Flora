@@ -37,8 +37,8 @@ public class EnviromentClientService {
 
     public boolean updateEnviromentClient (Long id , EnviromentClientDTO dto) {
         return repository.findById(id).map(enviromentClient ->  {
-            enviromentClient.setClientFlora(dto.client());
-            enviromentClient.setEnviroment(dto.enviroment());
+            enviromentClient.getClientFlora().setIdClient(dto.id_client());
+            enviromentClient.getEnviroment().setIdEnviroment(dto.id_enviroment());
 
             repository.save(enviromentClient);
             return true;

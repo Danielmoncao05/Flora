@@ -4,8 +4,8 @@ import com.senai.Flora.Domain.Entities.Entity.Register.enviroment.Enviroment;
 import com.senai.Flora.Domain.Entities.Entity.Register.user.ClientFlora;
 
 public record EnviromentClientDTO(
-        Long id ,
-        ClientFlora client,
-        Enviroment enviroment
+        Long id_Enviroment_Client ,
+        Long id_client,
+        Long id_enviroment
 ) {
 }

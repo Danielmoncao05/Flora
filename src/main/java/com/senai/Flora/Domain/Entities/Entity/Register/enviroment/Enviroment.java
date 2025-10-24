@@ -34,10 +34,10 @@ public class Enviroment {
     @Column(name = "location" , nullable = false  )
     private LocalDateTime location;
 
-    @OneToMany(mappedBy = "enviroment")
+    @OneToMany(mappedBy = "enviroment", cascade = CascadeType.ALL , orphanRemoval = true)
     private List<EnviromentClient> clients;
 
-    @OneToMany(mappedBy = "enviroment")
+    @OneToMany(mappedBy = "enviroment" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<EnviromentPlant> plants;
 
 }
