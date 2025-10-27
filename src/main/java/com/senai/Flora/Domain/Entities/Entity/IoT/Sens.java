@@ -1,5 +1,6 @@
 package com.senai.Flora.Domain.Entities.Entity.IoT;
 
+import com.senai.Flora.Domain.Entities.Entity.Register.user.Notification;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,8 +33,12 @@ public class Sens {
     @Column(name = "attribution_Date" , nullable = false)
     private LocalDateTime attribution_date;
 
+    /*----------- -------------Relation Measures------------------------------*/
     @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "measures_id")
     private List<MeasureSens> measureSens;
 
+    /*---------------------------Relation Notification-----------------------*/
+    @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Notification> notifications;
 }

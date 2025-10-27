@@ -27,7 +27,7 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientDTO> listenForId (@PathVariable Long id) {
+    public ResponseEntity<ClientDTO> searchId (@PathVariable Long id) {
         return clientService.searchForId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
