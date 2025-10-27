@@ -26,7 +26,7 @@ public class EnviromentPlant {
     private Plant plant;
 
     @ManyToOne
-    @JoinColumn(name = "id_enviroment")
+    @JoinColumn(name = "id_Enviroment")
     private Enviroment enviroment;
 
 

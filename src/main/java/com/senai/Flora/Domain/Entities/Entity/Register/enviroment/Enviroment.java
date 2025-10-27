@@ -19,7 +19,7 @@ public class Enviroment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_enviroment" , nullable = false)
+    @Column(name = "id_Enviroment" , nullable = false)
     private Long idEnviroment;
 
     @Column(name = "name_description", nullable = false)

@@ -33,6 +33,7 @@ public class Sens {
     private LocalDateTime attribution_date;
 
     @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "measures_id")
     private List<MeasureSens> measureSens;
 
 }

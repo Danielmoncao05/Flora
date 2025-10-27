@@ -1,9 +1,1 @@
-Make columns in the atrributies , all class
-
-- > Make Relationships controllers for test with entities
-|
-| -> make Mappers for use relationships
-
- -> Implement Entity for relationship in overview of project
-
-integrantion relationships to entities from Iot and create objects for consults
+-> finalize the relationship in which the entities not have a intermediary class between they

@@ -21,10 +21,10 @@ public class MapperEnviromentClient {
         EnviromentClient enviromentClient = new EnviromentClient();
 
         // Target ClientFlora class existent and associate a new EnviromentClient class
-        enviromentClient.setClientFlora(entityManager.getReference(ClientFlora.class, dto.id_client()));
+        enviromentClient.setClientFlora(entityManager.getReference(ClientFlora.class, dto.id_Client()));
 
         // Target Enviroment class existent and associate a new EnviromentClient class
-        enviromentClient.setEnviroment(entityManager.getReference(Enviroment.class, dto.id_enviroment()));
+        enviromentClient.setEnviroment(entityManager.getReference(Enviroment.class, dto.id_Enviroment()));
 
         return enviromentClient;
     }

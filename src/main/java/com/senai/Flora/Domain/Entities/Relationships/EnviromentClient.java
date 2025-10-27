@@ -23,6 +23,6 @@ public class EnviromentClient {
     private ClientFlora clientFlora;
 
     @ManyToOne
-    @JoinColumn(name = "id_enviroment")
+    @JoinColumn(name = "id_Enviroment")
     private Enviroment enviroment;
 }

@@ -22,9 +22,9 @@ public class EnviromentClientService {
 
     public EnviromentClientDTO registerRelation (EnviromentClientDTO dto) {
         EnviromentClient enviromentClient = mapper.toEntity(dto);
-        repository.save(enviromentClient);
+        EnviromentClient save = repository.save(enviromentClient);
 
-        return mapper.toDTO(enviromentClient);
+        return mapper.toDTO(save    );
     }
 
     public List<EnviromentClientDTO> listEnviromentClient () {
@@ -37,8 +37,8 @@ public class EnviromentClientService {
 
     public boolean updateEnviromentClient (Long id , EnviromentClientDTO dto) {
         return repository.findById(id).map(enviromentClient ->  {
-            enviromentClient.getClientFlora().setIdClient(dto.id_client());
-            enviromentClient.getEnviroment().setIdEnviroment(dto.id_enviroment());
+            enviromentClient.getClientFlora().setIdClient(dto.id_Client());
+            enviromentClient.getEnviroment().setIdEnviroment(dto.id_Enviroment());
 
             repository.save(enviromentClient);
             return true;
