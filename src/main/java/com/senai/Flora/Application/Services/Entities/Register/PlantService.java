@@ -57,4 +57,6 @@ public class PlantService {
 
         }).orElse(false);
     }
+
+    /*----------------------------------- Associate plant category--------------------------------*/
 }

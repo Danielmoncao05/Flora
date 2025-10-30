@@ -30,4 +30,8 @@ public class Plant {
 
     @OneToMany(mappedBy = "plant")
     private List<EnviromentPlant> enviroments;
+
+    @ManyToOne
+    @JoinColumn(name = "id_plant_category", nullable = true)
+    private PlantCategory category;
 }

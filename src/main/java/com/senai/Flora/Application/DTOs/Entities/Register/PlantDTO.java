@@ -4,6 +4,7 @@ public record PlantDTO(
         Long id,
         String name,
         boolean state,
-        String specialHelp
+        String specialHelp,
+        Long id_PlantCategory
 ) {
 }

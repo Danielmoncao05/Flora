@@ -1,3 +1,7 @@
 -> finalize the relationship in which the entities not have a intermediary class between they
 
 -> Test notification e complete crud in Enviroment Plant
+
+-> Create a fluxogram to understand the instancies flow of plant and plant category;
+
+-> make the association of plant in a plant category existent
