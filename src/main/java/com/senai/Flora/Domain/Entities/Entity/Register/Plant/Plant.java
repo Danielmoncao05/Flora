@@ -28,10 +28,10 @@ public class Plant {
     @Column(name = "special_Help", nullable = false)
     private String specialHelp;
 
+    @Column(name = "especie", nullable = false)
+    private String especie;
+
     @OneToMany(mappedBy = "plant")
     private List<EnviromentPlant> enviroments;
 
-    @ManyToOne
-    @JoinColumn(name = "id_plant_category", nullable = true)
-    private PlantCategory category;
 }

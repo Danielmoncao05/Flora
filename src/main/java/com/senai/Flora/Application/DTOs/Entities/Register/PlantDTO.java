@@ -5,6 +5,6 @@ public record PlantDTO(
         String name,
         boolean state,
         String specialHelp,
-        Long id_PlantCategory
+        String especie
 ) {
 }

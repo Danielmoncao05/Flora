@@ -11,6 +11,3 @@ public class FloraApplication {
 	}
 
 }
-
-
-// todo - > teste de relacionamento incial : vs = 1.1
