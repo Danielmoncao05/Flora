@@ -9,6 +9,7 @@ import com.senai.Flora.Infrastructure.Mapper.Relationships.MapperEnviromentPlant
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,7 +47,11 @@ public class EnviromentPlantService {
     public boolean updateEnviromentPlant (Long id , EnviromentPlantDTO dto) {
         return repository.findById(id).map(enviromentPlant -> {
             enviromentPlant.setPlant(entityManager.getReference(Plant.class, dto.idPlant()));
+
             enviromentPlant.setEnviroment(entityManager.getReference(Enviroment.class, dto.idEnviroment()));
+
+            enviromentPlant.setAttributionDate(LocalDate.now());
+            repository.save(enviromentPlant);
 
             return true;
 

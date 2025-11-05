@@ -8,6 +8,8 @@ import com.senai.Flora.Domain.Entities.Relationships.EnviromentPlant;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class MapperEnviromentPlant {
 
@@ -28,6 +30,8 @@ public class MapperEnviromentPlant {
         // Target Enviroment class existent and associate a new EnviromentPlant class
         enviromentPlant.setEnviroment(entityManager.getReference(Enviroment.class, dto.idEnviroment()));
 
+        enviromentPlant.setAttributionDate(LocalDate.now());
+
         return enviromentPlant;
     }
 
@@ -36,7 +40,8 @@ public class MapperEnviromentPlant {
         return new EnviromentPlantDTO(
                 enviromentPlant.getId(),
                 enviromentPlant.getPlant().getId(),
-                enviromentPlant.getEnviroment().getId()
+                enviromentPlant.getEnviroment().getId(),
+                enviromentPlant.getAttributionDate()
         );
     }
 

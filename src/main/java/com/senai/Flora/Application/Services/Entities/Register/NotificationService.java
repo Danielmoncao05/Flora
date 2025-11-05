@@ -49,6 +49,7 @@ public class NotificationService {
             // take sens and alternate for a new reference of Sens existent
             notification.setSens(entityManager.getReference(Sens.class , dto.id_Sens()));
 
+
             notification.setAttributionDate(LocalDate.now());
 
             repository.save( notification);
