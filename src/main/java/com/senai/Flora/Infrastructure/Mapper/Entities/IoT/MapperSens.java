@@ -18,9 +18,9 @@ public class MapperSens {
         if (dto == null) return null;
         Sens sens = new Sens();
         sens.setType(dto.type());
-        sens.setValue_sens(dto.value_sens());
-        sens.setSens_name(dto.sens_name());
-        sens.setAttribution_date(LocalDateTime.now());
+        sens.setValueSens(dto.value_sens());
+        sens.setSensName(dto.sens_name());
+        sens.setAttributionDate(LocalDateTime.now());
         sens.setMeasureSens(new ArrayList<>());
 
 
@@ -37,13 +37,13 @@ public class MapperSens {
 //        }
 
         return new SensDTO(
-                sens.getId_Sens(),
+                sens.getId(),
                 sens.getType(),
-                sens.getValue_sens(),
-                sens.getSens_name(),
-                sens.getAttribution_date(),
+                sens.getValueSens(),
+                sens.getSensName(),
+                sens.getAttributionDate(),
                 sens.getMeasureSens().stream().map(measureSens ->
-                        measureSens.getMeasure().getId_measure()).collect(Collectors.toList())
+                        measureSens.getMeasure().getId()).collect(Collectors.toList())
         );
     }
 }

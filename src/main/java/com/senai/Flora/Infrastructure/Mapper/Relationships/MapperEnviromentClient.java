@@ -7,6 +7,8 @@ import com.senai.Flora.Domain.Entities.Relationships.EnviromentClient;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class MapperEnviromentClient {
 
@@ -21,10 +23,12 @@ public class MapperEnviromentClient {
         EnviromentClient enviromentClient = new EnviromentClient();
 
         // Target ClientFlora class existent and associate a new EnviromentClient class
-        enviromentClient.setClientFlora(entityManager.getReference(ClientFlora.class, dto.id_Client()));
+        enviromentClient.setClientFlora(entityManager.getReference(ClientFlora.class, dto.idClient()));
 
         // Target Enviroment class existent and associate a new EnviromentClient class
-        enviromentClient.setEnviroment(entityManager.getReference(Enviroment.class, dto.id_Enviroment()));
+        enviromentClient.setEnviroment(entityManager.getReference(Enviroment.class, dto.idEnviroment()));
+
+        enviromentClient.setAttributionDate(LocalDate.now());
 
         return enviromentClient;
     }
@@ -32,9 +36,10 @@ public class MapperEnviromentClient {
     public EnviromentClientDTO toDTO (EnviromentClient enviromentClient) {
         if (enviromentClient == null) return null;
         return new EnviromentClientDTO(
-                enviromentClient.getId_enviromentClient(),
-                enviromentClient.getClientFlora().getIdClient(),
-                enviromentClient.getEnviroment().getIdEnviroment()
+                enviromentClient.getId(),
+                enviromentClient.getClientFlora().getId(),
+                enviromentClient.getEnviroment().getId(),
+                enviromentClient.getAttributionDate()
         );
     }
 }

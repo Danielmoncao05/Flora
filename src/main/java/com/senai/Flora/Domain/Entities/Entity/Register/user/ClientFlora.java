@@ -17,7 +17,7 @@ public class ClientFlora {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // identificator
     @Column(name = "id_client", nullable = false)
-    private Long idClient;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;

@@ -19,19 +19,19 @@ public class Sens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Sens" , nullable = false)
-    private Long id_Sens;
+    private Long id;
 
     @Column(name = "type" , nullable = false)
     private String type;
 
     @Column(name = "value_Sens" , nullable = false)
-    private Integer value_sens;
+    private Integer valueSens;
 
     @Column(name = "sens_Name" , nullable = false)
-    private String sens_name;
+    private String sensName;
 
     @Column(name = "attribution_Date" , nullable = false)
-    private LocalDateTime attribution_date;
+    private LocalDateTime attributionDate;
 
     /*----------- -------------Relation Measures------------------------------*/
     @OneToMany(mappedBy = "sens" , cascade = CascadeType.ALL, orphanRemoval = true)

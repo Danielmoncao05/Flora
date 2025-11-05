@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Builder
 @Data
@@ -19,7 +21,7 @@ public class EnviromentPlant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_enviromentplant")
-    private Long id_EnviromentPlant;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_plant")
@@ -28,6 +30,9 @@ public class EnviromentPlant {
     @ManyToOne
     @JoinColumn(name = "id_Enviroment")
     private Enviroment enviroment;
+
+    @Column(name = "attribution_date")
+    private LocalDate attributionDate;
 
 
 }

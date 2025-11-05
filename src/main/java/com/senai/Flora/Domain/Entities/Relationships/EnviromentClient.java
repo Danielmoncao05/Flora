@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,7 +18,7 @@ public class EnviromentClient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_enviromentClient")
-    private Long id_enviromentClient;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_client")
@@ -25,4 +27,7 @@ public class EnviromentClient {
     @ManyToOne
     @JoinColumn(name = "id_Enviroment")
     private Enviroment enviroment;
+
+    @Column(name = "attribution_date")
+    private LocalDate attributionDate;
 }

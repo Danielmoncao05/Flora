@@ -23,10 +23,10 @@ public class MapperEnviromentPlant {
         EnviromentPlant enviromentPlant = new EnviromentPlant();
 
         // Target Plant class existent and associate a new EnviromentPlant class
-        enviromentPlant.setPlant(entityManager.getReference(Plant.class, dto.id_Plant()));
+        enviromentPlant.setPlant(entityManager.getReference(Plant.class, dto.idPlant()));
 
         // Target Enviroment class existent and associate a new EnviromentPlant class
-        enviromentPlant.setEnviroment(entityManager.getReference(Enviroment.class, dto.id_Enviroment()));
+        enviromentPlant.setEnviroment(entityManager.getReference(Enviroment.class, dto.idEnviroment()));
 
         return enviromentPlant;
     }
@@ -34,9 +34,9 @@ public class MapperEnviromentPlant {
     public EnviromentPlantDTO toDTO (EnviromentPlant enviromentPlant) {
         if (enviromentPlant == null) return null;
         return new EnviromentPlantDTO(
-                enviromentPlant.getId_EnviromentPlant(),
-                enviromentPlant.getPlant().getId_Plant(),
-                enviromentPlant.getEnviroment().getIdEnviroment()
+                enviromentPlant.getId(),
+                enviromentPlant.getPlant().getId(),
+                enviromentPlant.getEnviroment().getId()
         );
     }
 

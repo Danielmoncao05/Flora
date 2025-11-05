@@ -20,7 +20,7 @@ public class MapperClient {
     public ClientDTO toDTO (ClientFlora client) {
         if (client == null) return null;
         return new ClientDTO(
-                client.getIdClient(),
+                client.getId(),
                 client.getName(),
                 client.getAge(),
                 client.getEmail()

@@ -17,7 +17,7 @@ public class Measure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Measure" ,nullable = false)
-    private Long id_measure;
+    private Long id;
 
     @Column(name = "measure_Name" ,nullable = false)
     private String measure_name;

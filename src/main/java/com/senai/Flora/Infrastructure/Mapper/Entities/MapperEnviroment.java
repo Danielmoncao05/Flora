@@ -23,7 +23,7 @@ public class MapperEnviroment {
     public EnviromentDTO toDTO (Enviroment enviroment) {
         if (enviroment == null) return null;
         return new EnviromentDTO(
-                enviroment.getIdEnviroment(),
+                enviroment.getId(),
                 enviroment.getNameDescription(),
                 enviroment.getObservation(),
                 enviroment.isState(),

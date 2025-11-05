@@ -25,11 +25,11 @@ public class MapperMeasure {
         if (measure == null) return null;
 
         return new MeasureDTO(
-                measure.getId_measure(),
+                measure.getId(),
                 measure.getMeasure_name(),
                 measure.getMeasure_default(),
                 measure.getMeasureSens().stream().map(measureSens ->
-                        measureSens.getSens().getId_Sens()).collect(Collectors.toList())
+                        measureSens.getSens().getId()).collect(Collectors.toList())
         );
     }
 

@@ -20,7 +20,7 @@ public class Enviroment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Enviroment" , nullable = false)
-    private Long idEnviroment;
+    private Long id;
 
     @Column(name = "name_description", nullable = false)
     private String nameDescription;

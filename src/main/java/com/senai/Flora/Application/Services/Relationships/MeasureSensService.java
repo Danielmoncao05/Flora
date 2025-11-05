@@ -1,11 +1,15 @@
 package com.senai.Flora.Application.Services.Relationships;
 
 import com.senai.Flora.Application.DTOs.Relationships.MeasureSensDTO;
+import com.senai.Flora.Domain.Entities.Entity.IoT.Measure;
+import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import com.senai.Flora.Domain.Repositories.Relationships.MeasureSensRepository;
 import com.senai.Flora.Infrastructure.Mapper.Relationships.MapperMeasureSens;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,9 +21,12 @@ public class MeasureSensService {
 
     private final MapperMeasureSens mapper;
 
-    public MeasureSensService(MeasureSensRepository repository, MapperMeasureSens mapper) {
+    private final EntityManager entityManager;
+
+    public MeasureSensService(MeasureSensRepository repository, MapperMeasureSens mapper, EntityManager entityManager) {
         this.repository = repository;
         this.mapper = mapper;
+        this.entityManager = entityManager;
     }
 
     public MeasureSensDTO registerMeasureSens (MeasureSensDTO dto) {
@@ -38,9 +45,12 @@ public class MeasureSensService {
 
     public boolean updateMeasureSens ( Long id , MeasureSensDTO dto) {
         return repository.findById(id).map(measureSens -> {
-            measureSens.getSens().setId_Sens(dto.id_sens());
-            measureSens.getMeasure().setId_measure(dto.id_measure());
 
+            measureSens.setSens(entityManager.getReference(Sens.class, dto.idSens()));
+
+            measureSens.setMeasure(entityManager.getReference(Measure.class, dto.idMeasure()));
+
+            measureSens.setAttributionDate(LocalDate.now());
             repository.save(measureSens);
             return true;
 

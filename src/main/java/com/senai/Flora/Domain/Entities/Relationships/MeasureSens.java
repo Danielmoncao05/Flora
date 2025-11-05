@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,7 +18,7 @@ public class MeasureSens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_measuresens" , nullable = false)
-    private Long id_MeasureSens;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_sens" , nullable = false)
@@ -26,6 +28,9 @@ public class MeasureSens {
     @ManyToOne
     @JoinColumn(name = "id_measure" , nullable = false)
     private Measure measure;
+
+    @Column(name = "attribution_date")
+    private LocalDate attributionDate;
 
 
 }

@@ -6,6 +6,8 @@ import com.senai.Flora.Domain.Entities.Entity.Register.user.Notification;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class MapperNotification {
 
@@ -20,6 +22,7 @@ public class MapperNotification {
         Notification notification = new Notification();
 
         notification.setSens(entityManager.getReference(Sens.class, dto.id_Sens()));
+        notification.setAttributionDate(LocalDate.now());
 
         return notification;
     }
@@ -27,8 +30,9 @@ public class MapperNotification {
     public NotificationDTO toDTO (Notification notification) {
         if (notification == null) return null;
         return new NotificationDTO(
-                notification.getId_Notification(),
-                notification.getSens().getId_Sens()
+                notification.getId(),
+                notification.getSens().getId(),
+                notification.getAttributionDate()
         );
     }
 

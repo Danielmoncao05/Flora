@@ -7,6 +7,8 @@ import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class MapperMeasureSens {
 
@@ -21,10 +23,12 @@ public class MapperMeasureSens {
         MeasureSens measureSens = new MeasureSens();
 
         // Target sens class existent and associate a new MeasureSens class
-       measureSens.setSens(entityManager.getReference(Sens.class, dto.id_sens()));
+       measureSens.setSens(entityManager.getReference(Sens.class, dto.idSens()));
 
         // Target Measure class existent and associate a new MeasureSens class
-        measureSens.setMeasure(entityManager.getReference(Measure.class, dto.id_measure()));
+        measureSens.setMeasure(entityManager.getReference(Measure.class, dto.idMeasure()));
+
+        measureSens.setAttributionDate(LocalDate.now());
 
         return measureSens;
     }
@@ -33,9 +37,10 @@ public class MapperMeasureSens {
         if (measureSens == null) return null;
 
         return new MeasureSensDTO(
-                measureSens.getId_MeasureSens(),
-                measureSens.getSens().getId_Sens(),
-                measureSens.getMeasure().getId_measure()
+                measureSens.getId(),
+                measureSens.getSens().getId(),
+                measureSens.getMeasure().getId(),
+                measureSens.getAttributionDate()
         );
     }
 }

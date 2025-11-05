@@ -28,12 +28,12 @@ public class NotificationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<NotificationDTO> searchForId(Long id) {
+    public ResponseEntity<NotificationDTO> searchForId( @PathVariable Long id) {
         return service.searchId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateNotification (Long id , NotificationDTO dto) {
+    public ResponseEntity<String> updateNotification (@PathVariable Long id ,  @RequestBody NotificationDTO dto) {
         if (service.updatenNotification(id, dto)) {
             return ResponseEntity.ok("Notification updated!!");
         } else  {
@@ -42,7 +42,7 @@ public class NotificationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteNotification (Long id) {
+    public ResponseEntity<String> deleteNotification ( @PathVariable Long id) {
         if (service.removeNotification(id)) {
             return ResponseEntity.ok("Notification removed !!!!");
         } else {

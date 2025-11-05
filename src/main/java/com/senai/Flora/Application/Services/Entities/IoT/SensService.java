@@ -38,9 +38,9 @@ public class SensService {
     public boolean updateSens(Long id , SensDTO dto) {
         return repo.findById(id).map(sens ->  {
             sens.setType(dto.type());
-            sens.setValue_sens(dto.value_sens());
-            sens.setSens_name(dto.sens_name());
-            sens.setAttribution_date(LocalDateTime.now());
+            sens.setValueSens(dto.value_sens());
+            sens.setSensName(dto.sens_name());
+            sens.setAttributionDate(LocalDateTime.now());
 
 
             repo.save(sens);

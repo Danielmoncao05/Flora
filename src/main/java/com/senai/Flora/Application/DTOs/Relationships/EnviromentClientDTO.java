@@ -1,8 +1,11 @@
 package com.senai.Flora.Application.DTOs.Relationships;
 
+import java.time.LocalDate;
+
 public record EnviromentClientDTO(
-        Long id_Enviroment_Client ,
-        Long id_Client,
-        Long id_Enviroment
+        Long id ,
+        Long idClient,
+        Long idEnviroment,
+        LocalDate attributionDate
 ) {
 }
