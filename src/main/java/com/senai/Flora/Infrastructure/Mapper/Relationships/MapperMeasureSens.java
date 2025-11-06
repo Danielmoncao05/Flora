@@ -1,9 +1,14 @@
 package com.senai.Flora.Infrastructure.Mapper.Relationships;
 
-import com.senai.Flora.Application.DTOs.Relationships.MeasureSensDTO;
+import com.senai.Flora.Application.DTOs.Entities.IoT.MeasureDTO;
+import com.senai.Flora.Application.DTOs.Entities.IoT.SensDTO;
+import com.senai.Flora.Application.DTOs.Relationships.MeasureSens.MeasureSensDTO;
+import com.senai.Flora.Application.DTOs.Relationships.MeasureSens.MeasureSensFullDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Measure;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
+import com.senai.Flora.Infrastructure.Mapper.Entities.IoT.MapperMeasure;
+import com.senai.Flora.Infrastructure.Mapper.Entities.IoT.MapperSens;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +23,14 @@ public class MapperMeasureSens {
         this.entityManager = entityManager;
     }
 
-    public MeasureSens toEntity (MeasureSensDTO dto) {
+
+    // For id
+    public MeasureSens toEntity(MeasureSensDTO dto) {
         if (dto == null) return null;
         MeasureSens measureSens = new MeasureSens();
 
         // Target sens class existent and associate a new MeasureSens class
-       measureSens.setSens(entityManager.getReference(Sens.class, dto.idSens()));
+        measureSens.setSens(entityManager.getReference(Sens.class, dto.idSens()));
 
         // Target Measure class existent and associate a new MeasureSens class
         measureSens.setMeasure(entityManager.getReference(Measure.class, dto.idMeasure()));
@@ -33,7 +40,7 @@ public class MapperMeasureSens {
         return measureSens;
     }
 
-    public MeasureSensDTO toDTO (MeasureSens measureSens) {
+    public MeasureSensDTO toDTO(MeasureSens measureSens) {
         if (measureSens == null) return null;
 
         return new MeasureSensDTO(
@@ -43,6 +50,18 @@ public class MapperMeasureSens {
                 measureSens.getAttributionDate()
         );
     }
+
+    // For complete body
+
+    public MeasureSensFullDTO toFullDTO(MeasureSens entity) {
+        return new MeasureSensFullDTO(
+                entity.getId(),
+                MapperSens.toDTO(entity.getSens()),
+                MapperMeasure.toDTO(entity.getMeasure())
+        );
+    }
+
+
 }
 
 

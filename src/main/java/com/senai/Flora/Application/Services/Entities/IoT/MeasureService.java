@@ -29,11 +29,11 @@ public class MeasureService {
     }
 
     public List<MeasureDTO> listMeasures () {
-        return repo.findAll().stream().map(mapper::toDTO).collect(Collectors.toList());
+        return repo.findAll().stream().map(MapperMeasure::toDTO).collect(Collectors.toList());
     }
 
     public Optional<MeasureDTO> searchForId (Long id) {
-        return repo.findById(id).map(mapper::toDTO);
+        return repo.findById(id).map(MapperMeasure::toDTO);
     }
 
     public boolean updateMeasure (Long id , MeasureDTO dto) {

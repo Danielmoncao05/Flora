@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Component
 public class MapperSens {
 
-    public Sens toEntity (SensDTO dto) {
+    public static Sens toEntity (SensDTO dto) {
         if (dto == null) return null;
         Sens sens = new Sens();
         sens.setType(dto.type());
@@ -28,7 +28,7 @@ public class MapperSens {
         return sens;
     }
 
-    public SensDTO toDTO (Sens sens) {
+    public  static SensDTO toDTO (Sens sens) {
         if (sens == null) return null;
 
 //        List<Long> idMeasureSens = null;

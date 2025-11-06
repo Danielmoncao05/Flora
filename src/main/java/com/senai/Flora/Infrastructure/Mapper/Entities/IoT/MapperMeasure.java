@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public class MapperMeasure {
 
-    public Measure toEntity (MeasureDTO dto) {
+    public static Measure toEntity (MeasureDTO dto) {
         if (dto == null) return null;
         Measure measure = new Measure();
         measure.setMeasure_name(dto.measure_name());
@@ -21,7 +21,7 @@ public class MapperMeasure {
         return measure;
     }
 
-    public MeasureDTO toDTO (Measure measure) {
+    public static MeasureDTO toDTO (Measure measure) {
         if (measure == null) return null;
 
         return new MeasureDTO(

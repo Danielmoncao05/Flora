@@ -28,11 +28,11 @@ public class SensService {
     }
 
     public List<SensDTO> listSens () {
-        return repo.findAll().stream().map(mapper::toDTO).collect(Collectors.toList());
+        return repo.findAll().stream().map(MapperSens::toDTO).collect(Collectors.toList());
     }
 
     public Optional<SensDTO> searchForId (Long id) {
-        return repo.findById(id).map(mapper::toDTO);
+        return repo.findById(id).map(MapperSens::toDTO);
     }
 
     public boolean updateSens(Long id , SensDTO dto) {

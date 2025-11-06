@@ -1,6 +1,6 @@
-package com.senai.Flora.Interface_ui_Controller.RelationshipsController;
+package com.senai.Flora.Interface_ui_Controller.RelationshipsController.MeasureSens;
 
-import com.senai.Flora.Application.DTOs.Relationships.MeasureSensDTO;
+import com.senai.Flora.Application.DTOs.Relationships.MeasureSens.MeasureSensDTO;
 import com.senai.Flora.Application.Services.Relationships.MeasureSensService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

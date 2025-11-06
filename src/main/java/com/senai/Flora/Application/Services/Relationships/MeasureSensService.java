@@ -1,6 +1,6 @@
 package com.senai.Flora.Application.Services.Relationships;
 
-import com.senai.Flora.Application.DTOs.Relationships.MeasureSensDTO;
+import com.senai.Flora.Application.DTOs.Relationships.MeasureSens.MeasureSensDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Measure;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
