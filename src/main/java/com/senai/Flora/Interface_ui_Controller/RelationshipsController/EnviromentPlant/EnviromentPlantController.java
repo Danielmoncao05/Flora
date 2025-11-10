@@ -1,4 +1,4 @@
-package com.senai.Flora.Interface_ui_Controller.RelationshipsController;
+package com.senai.Flora.Interface_ui_Controller.RelationshipsController.EnviromentPlant;
 
 import com.senai.Flora.Application.DTOs.Relationships.EnviromentPlantDTO;
 import com.senai.Flora.Application.Services.Relationships.EnviromentPlantService;

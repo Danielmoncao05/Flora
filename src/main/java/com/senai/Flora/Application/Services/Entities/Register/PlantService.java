@@ -1,6 +1,6 @@
 package com.senai.Flora.Application.Services.Entities.Register;
 
-import com.senai.Flora.Application.DTOs.Entities.Register.PlantDTO;
+import com.senai.Flora.Application.DTOs.Entities.Plant.PlantDTO;
 import com.senai.Flora.Domain.Entities.Entity.Register.Plant.Plant;
 import com.senai.Flora.Domain.Repositories.Entity.PlantRepository;
 import com.senai.Flora.Infrastructure.Mapper.Entities.MapperPlant;

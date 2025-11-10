@@ -1,4 +1,4 @@
-package com.senai.Flora.Application.DTOs.Entities.Register;
+package com.senai.Flora.Application.DTOs.Entities.Enviroment;
 
 import java.time.LocalDateTime;
 

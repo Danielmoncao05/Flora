@@ -19,6 +19,8 @@ public class MapperMeasureSens {
 
     private final EntityManager entityManager;
 
+
+
     public MapperMeasureSens(EntityManager entityManager) {
         this.entityManager = entityManager;
     }

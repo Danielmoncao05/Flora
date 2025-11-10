@@ -1,4 +1,4 @@
-package com.senai.Flora.Application.DTOs.Entities.Register;
+package com.senai.Flora.Application.DTOs.Entities.Plant;
 
 public record PlantDTO(
         Long id,

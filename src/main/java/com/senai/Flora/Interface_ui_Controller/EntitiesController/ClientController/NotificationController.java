@@ -1,6 +1,6 @@
 package com.senai.Flora.Interface_ui_Controller.EntitiesController.ClientController;
 
-import com.senai.Flora.Application.DTOs.Entities.Register.NotificationDTO;
+import com.senai.Flora.Application.DTOs.Entities.Notification.NotificationDTO;
 import com.senai.Flora.Application.Services.Entities.Register.NotificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

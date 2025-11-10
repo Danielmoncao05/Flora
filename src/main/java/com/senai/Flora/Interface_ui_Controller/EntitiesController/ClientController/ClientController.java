@@ -1,7 +1,7 @@
 package com.senai.Flora.Interface_ui_Controller.EntitiesController.ClientController;
 
 
-import com.senai.Flora.Application.DTOs.Entities.Register.ClientDTO;
+import com.senai.Flora.Application.DTOs.Entities.Client.ClientDTO;
 import com.senai.Flora.Application.Services.Entities.Register.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
