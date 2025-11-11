@@ -30,6 +30,16 @@ public class EnviromentController {
         return service.searchForId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    // * basico pra buscar o usuario
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<EnviromentDTO>> getByUser(@PathVariable Long userId){
+        List<EnviromentDTO> list = service.getEnvironmentsByUserId(userId);
+        return ResponseEntity.ok(list);
+    }
+
+    //------------------------------------------------------------
+
     @PutMapping("/{id}")
     public ResponseEntity<String> updateEnviroment (@PathVariable Long id, @RequestBody EnviromentDTO dto) {
         if (service.updateEnviroment(id, dto)) {

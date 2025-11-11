@@ -22,4 +22,6 @@ public class ClientFlora {
     private Integer age;
     private String email;
 
+    private String password; // * Eh Dani eu adicionei essa variavel que ficou faltando
+
 }

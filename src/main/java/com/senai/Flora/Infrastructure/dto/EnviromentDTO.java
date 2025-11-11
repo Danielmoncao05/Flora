@@ -7,6 +7,7 @@ public record EnviromentDTO(
         String nameDescription,
         String observation,
         boolean state,
-        LocalDateTime location
+        String location,
+        Long ownerId // *
 ) {
 }

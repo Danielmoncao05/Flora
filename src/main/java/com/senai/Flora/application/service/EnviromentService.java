@@ -1,10 +1,12 @@
 package com.senai.Flora.application.service;
 
 import com.senai.Flora.Infrastructure.dto.EnviromentDTO;
+import com.senai.Flora.Infrastructure.repository.ClientRepository;
+import com.senai.Flora.domain.ClientFlora;
 import com.senai.Flora.domain.Enviroment;
 import com.senai.Flora.Infrastructure.repository.EnviromentRepository;
 import com.senai.Flora.Infrastructure.mapper.MapperEnviroment;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,19 +15,41 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor // * coloquei pra n ter que usar o @Autowired blz
 public class EnviromentService {
 
-    @Autowired
-    private EnviromentRepository repo;
+    private final EnviromentRepository repo;
 
-    @Autowired
-    private MapperEnviroment mapper;
+    private final MapperEnviroment mapper;
 
-    public EnviromentDTO registerEnviroment (EnviromentDTO dto) {
-        Enviroment enviroment = mapper.toEntity(dto);
+    private final ClientRepository clientRepository; // * pra buscar o dono do ambiente
+
+//    public EnviromentDTO registerEnviroment (EnviromentDTO dto) {
+//        Enviroment enviroment = mapper.toEntity(dto);
+//        repo.save(enviroment);
+//        return mapper.toDTO(enviroment);
+//    }
+
+    public EnviromentDTO registerEnviroment(EnviromentDTO dto){
+        ClientFlora owner = null;
+        if (dto.ownerId() != null){ // * pra buscar o dono que é o usuario com base no Id que vai vir do front
+            owner = clientRepository.findById(dto.ownerId()).orElse(null);
+        }
+
+        Enviroment enviroment = mapper.toEntity(dto, owner);
         repo.save(enviroment);
+
         return mapper.toDTO(enviroment);
     }
+
+    public EnviromentDTO createEnviroment(EnviromentDTO dto){
+        Long onwerId = dto.ownerId();
+        ClientFlora owner = clientRepository.findById(onwerId).orElse(null);
+        Enviroment env = mapper.toEntity(dto, owner);
+        Enviroment saved = repo.save(env);
+        return mapper.toDTO(saved);
+    }
+
 
     public List<EnviromentDTO> listEnviroments () {
         return repo.findAll().stream().map(mapper::toDTO).collect(Collectors.toList());
@@ -40,7 +64,7 @@ public class EnviromentService {
             enviroment.setNameDescription(dto.nameDescription());
             enviroment.setObservation(dto.observation());
             enviroment.setState(dto.state());
-            enviroment.setLocation(LocalDateTime.now());
+            enviroment.setLocation(dto.location());
 
             repo.save(enviroment);
 
@@ -56,4 +80,15 @@ public class EnviromentService {
 
         }).orElse(false);
     }
+
+    // * funcao pra retornar todos os ambientes de um certo usuario, igual oq eu fiz naquele outro repositorio meu que te mostrei, mas esse usa o mapper ao inves do DTO
+
+    public List<EnviromentDTO> getEnvironmentsByUserId(Long userId){
+        return repo.findByOwner_IdClient(userId)
+                .stream()
+                .map(mapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    //---------------------------------------------------------------
 }

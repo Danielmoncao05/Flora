@@ -1,10 +1,7 @@
 package com.senai.Flora.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,10 @@ public class Enviroment {
     private String nameDescription;
     private String observation;
     private boolean state;
-    private LocalDateTime location;
+    private String location;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private ClientFlora owner; // * pra criar a coluna cliente_id na tabela enviroment
 
 }

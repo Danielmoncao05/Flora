@@ -58,4 +58,11 @@ public class ClientService {
 
         }).orElse(false);
     }
+
+    //funcao para chamada de logins pedido pelo Quidute
+
+    public Optional<ClientDTO> getUserByEmailAndPassword(String email, String password){
+        return repository.findByEmailAndPassword(email, password)
+                .map(mapperClient::toDTO);
+    }
 }
