@@ -8,6 +8,7 @@ import com.senai.Flora.Infrastructure.mapper.MapperClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,12 +22,20 @@ public class ClientService {
     @Autowired
     private MapperClient mapperClient;
 
+
     public ClientDTO registerClient (ClientDTO dto) {
     ClientFlora clientFlora = mapperClient.toEntity(dto);
     // ClientFlora save = repository.save(clientFlora);
         repository.save(clientFlora);
 
-    return mapperClient.toDTO(clientFlora);
+
+    return new ClientDTO(
+            clientFlora.getIdClient(),
+            clientFlora.getName(),
+            clientFlora.getAge(),
+            clientFlora.getEmail(),
+            null + " senha protegida"
+    );
     }
 
     public List<ClientDTO> listingClients () {
@@ -43,6 +52,8 @@ public class ClientService {
             clientFlora.setName(dto.name());
             clientFlora.setAge(dto.age());
             clientFlora.setEmail(dto.email());
+            clientFlora.setPassword(dto.password()); // * pra caso esqueça da senha
+
 
             repository.save(clientFlora);
 
@@ -65,4 +76,6 @@ public class ClientService {
         return repository.findByEmailAndPassword(email, password)
                 .map(mapperClient::toDTO);
     }
+
+    //-------------------------------------------------------------------
 }

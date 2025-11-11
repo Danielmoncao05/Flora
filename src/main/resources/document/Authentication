@@ -1,0 +1,259 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Salve, mn! Tudo tranquilo?
+
+Então, nessa parte do projeto, eu implementei um sistema de autenticação e autorização com JWT (JSON Web Token).
+Tive que pesquisar um pouco porque eu não fazia ideia de como esse tal de token funcionava, mas no fim deu tudo certo
+O objetivo foi garantir que apenas usuários autenticados consigam acessar certas rotas,
+ tipo listar clientes e outras funções mais sensíveis do sistema.
+ O que mudou no sistema
+Depois das alterações, o sistema agora:
+ Permite cadastrar clientes com senha armazenada (por enquanto sem criptografia, mas segura na resposta);
+ Faz login e gera um token JWT;
+ Valida o token automaticamente em requisições protegidas;
+ Retorna mensagens de erro personalizadas quando o token é inválido ou ausente.
+
+
+
+ Uma dica...as alterações ou adições eu coloquei comentado dessa forma  " // * bla bla bla" então fique atento
+
+
+
+--------------------------Estrutura criada---------------------------------------------
+
+Como eu não tinha certeza onde colocar algumas classes, criei tudo dentro do pacote infrastructure (ou infra).
+
+As principais classes e funções que adicionei foram:
+
+------------------Classe	Função--------------------
+
+JwtUtil	Responsável por gerar e validar os tokens JWT
+JwtAuthFilter	Filtro que intercepta e valida o token nas requisições
+AuthController	Controlador responsável pelo login e geração de tokens
+ClientService	Ajustado para não retornar a senha no JSON de resposta
+ Passo a passo da implementação
+ Ajuste na Entidade Cliente
+
+A classe ClientFlora ganhou o campo password.
+Mesmo sem criptografia por enquanto, a senha nunca é retornada nas respostas da API.
+
+ Exemplo de requisição:
+
+{
+  "nome": "Evandro",
+  "age" : 20,
+  "email": "evandro@teste.com",
+  "password": "123456"
+}
+
+
+ Resposta esperada (sem senha):
+
+{
+  "id": "1",
+  "nome": "Evandro",
+  "email": "evandro@teste.com",
+}
+
+---------------------Classe JwtUtil------------------------
+
+Essa classe cuida de tudo que envolve o token JWT.
+Ela é basicamente o “coração” da autenticação.
+
+Funções principais:
+
+ Gera tokens com base no e-mail do usuário;
+
+ Extrai o e-mail de dentro do token;
+
+ Valida o token (verifica se foi alterado ou expirou).
+
+--------------Classe JwtAuthFilter--------------
+
+Essa classe é tipo um “porteiro” do sistema
+Antes de qualquer requisição entrar, o filtro verifica se tem um token válido no cabeçalho.
+
+O que ele faz:
+
+Verifica se existe o cabeçalho Authorization;
+
+Checa se começa com "Bearer ";
+
+Valida o token usando o JwtUtil;
+
+Se for válido → deixa passar;
+
+Se não → retorna 401 Unauthorized.
+
+---------------AuthController – Login-------------------------
+
+Esse é o controlador que cuida do login e emissão de tokens.
+
+ Endpoint:
+
+POST /auth/login
+
+
+ Exemplo de requisição:
+
+{
+  "email": "evandro@teste.com",
+  "password": "123456"
+}
+
+
+ Resposta esperada:
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+
+
+ Esse token deve ser enviado no cabeçalho das próximas requisições:
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6...
+
+ Cadastro de Cliente (ClientController)
+
+ Endpoint:
+
+POST /clientes
+
+
+ Exemplo de corpo da requisição:
+
+{
+  "nome": "Evandro",
+  "age" : 20,
+  "email": "evandro@teste.com",
+  "password": "123456"
+}
+
+
+ Resposta esperada (sem senha):
+
+{
+  "id": "1",
+  "nome": "Evandro",
+  "email": "evandro@teste.com"
+}
+
+ Testando a Validação do Token
+
+ Endpoint protegido:
+
+GET /clientes
+
+
+ No Postman, adicione o header:
+
+Authorization: Bearer <token_aqui>
+
+
+ Se o token for válido (Enviroment):
+
+[
+ {
+     "nameDescription": "Estufa Principal",
+     "observation": "Ambiente principal da horta com sensores de temperatura",
+     "state": true,
+     "location": "Bloco A",
+     "ownerId": 1
+ }
+
+]
+
+
+ Se o token for inválido ou ausente:
+
+{
+  "error": "Acesso negado ou token inválido"
+}
+
+-----------------------Security----------------------
+
+
+teve tbm a pasta de security aonde nessa pasta contém as configurações de segurança do Spring Boot.
+
+ Ela define quais endpoints exigem autenticação e quais estão liberados.
+
+ Classe principal: SecurityConfig
+
+ Essa classe é onde a mágica acontece.
+ Ela configura o Spring Security pra:
+
+ Permitir o acesso público ao /auth/login e /clientes (POST) (pra quem ainda não tem conta);
+
+ Exigir token JWT nas outras rotas (como GET de clientes);
+
+ Aplicar o filtro JwtAuthFilter antes de qualquer requisição protegida.
+
+ Em resumo, ela diz pro Spring:
+
+ “Deixa logar e cadastrar de boa, mas o resto precisa passar pelo filtro JWT.”
+
+------------------------Códigos de resposta HTTP---------------------------------
+
+Código	Significado
+200 OK	Requisição bem-sucedida
+201 Created	Cadastro realizado com sucesso
+400 Bad Request	Dados enviados incorretos
+401 Unauthorized	Token ausente, inválido ou expirado
+500 Internal Server Error	Erro interno no servidor
+
+---------------------Fluxo completo da autenticação-----------------------------
+
+(Aqui eu precisei de uma ajudinha do chat pra entender o fluxo )
+
+POST /clientes        → Cadastra o usuário
+       ↓
+POST /auth/login      → Faz o login e retorna o token JWT
+       ↓
+GET /clientes         → Usa o token para acessar rota protegida
+       ↓
+Token válido          → Acesso liberado
+Token inválido        → 401 Unauthorized
+
+ JSONs de Teste (para Postman)
+
+ Cadastro de cliente
+
+POST http://localhost:8080/client
+
+{
+  "nome": "Evandro",
+  "age" : 20,
+  "email": "evandro@teste.com",
+  "password": "123456"
+}
+
+ Login
+
+POST http://localhost:8080/auth/login
+
+{
+  "email": "evandro@teste.com",
+  "password": "123456"
+}
+
+ Acesso protegido
+
+GET http://localhost:8080/client
+
+Header:
+
+Authorization: Bearer <token_gerado_no_login>
+
+
+tentei anotar tudo oq eu fiz mas acho que tem coisa que eu esqueci, qualquer coisa depois eu comento com vc
