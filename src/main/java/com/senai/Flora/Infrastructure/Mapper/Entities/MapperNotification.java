@@ -2,7 +2,7 @@ package com.senai.Flora.Infrastructure.Mapper.Entities;
 
 import com.senai.Flora.Application.DTOs.Entities.Notification.NotificationDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
-import com.senai.Flora.Domain.Entities.Entity.Register.user.Notification;
+import com.senai.Flora.Domain.Entities.Entity.Notification;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Component;
 

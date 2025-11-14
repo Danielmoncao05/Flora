@@ -1,6 +1,6 @@
 package com.senai.Flora.Domain.Entities.Entity.IoT;
 
-import com.senai.Flora.Domain.Entities.Entity.Register.user.Notification;
+import com.senai.Flora.Domain.Entities.Entity.Notification;
 import com.senai.Flora.Domain.Entities.Relationships.MeasureSens;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

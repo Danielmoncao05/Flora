@@ -2,7 +2,7 @@ package com.senai.Flora.Application.Services.Entities.Register;
 
 import com.senai.Flora.Application.DTOs.Entities.Notification.NotificationDTO;
 import com.senai.Flora.Domain.Entities.Entity.IoT.Sens;
-import com.senai.Flora.Domain.Entities.Entity.Register.user.Notification;
+import com.senai.Flora.Domain.Entities.Entity.Notification;
 import com.senai.Flora.Domain.Repositories.Entity.NotificationRepository;
 import com.senai.Flora.Infrastructure.Mapper.Entities.MapperNotification;
 import jakarta.persistence.EntityManager;

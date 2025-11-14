@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "id") // foreign key define with primary
-public class ClientFlora {
+public class ClientFlora extends User {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY) // identificator
@@ -30,6 +30,7 @@ public class ClientFlora {
 //
 //    @Column(name = "email" , nullable = false)
 //    private String email;
+//
 
     @OneToMany(mappedBy = "clientFlora")
     private List<EnviromentClient> enviroments;

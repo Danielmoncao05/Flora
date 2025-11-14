@@ -13,6 +13,7 @@ public class MapperClient {
         clientFlora.setName(dto.name());
         clientFlora.setAge(dto.age());
         clientFlora.setEmail(dto.email());
+        clientFlora.setPassword(dto.password());
 
         return clientFlora;
     }
@@ -23,7 +24,8 @@ public class MapperClient {
                 client.getId(),
                 client.getName(),
                 client.getAge(),
-                client.getEmail()
+                client.getEmail(),
+                client.getPassword()
         );
     }
 }

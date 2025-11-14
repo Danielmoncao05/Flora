@@ -4,6 +4,7 @@ public record ClientDTO(
         Long id,
         String name,
         Integer age,
-        String email
+        String email,
+        String password
 ) {
 }
